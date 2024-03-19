@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>MDL</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #loveText {
+            color: #7D000B;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loveText">i.in_loved_with(u) for</div>
+    <div id="timeElapse"></div>
+
+    <script>
+        var startDate = new Date("2024-03-19T00:00:00"); 
+        var timeElapseDiv = document.getElementById("timeElapse");
+
+        function updateTimeElapse() {
+            var now = new Date();
+            var timeDifference = now - startDate;
+
+            var seconds = Math.floor(timeDifference / 1000);
+            var minutes = Math.floor(seconds / 60);
+            var hours = Math.floor(minutes / 60);
+            var days = Math.floor(hours / 24);
+
+            hours %= 24;
+            minutes %= 60;
+            seconds %= 60;
+
+            timeElapseDiv.textContent = days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds";
+        }
+
+        setInterval(updateTimeElapse, 1000); 
+    </script>
+</body>
+</html>
